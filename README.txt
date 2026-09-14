@@ -32,7 +32,7 @@ FITUR
 - Gentle hero floating + lightweight parallax
 - Keyboard accessible modal (ESC, click outside, focus handling)
 - CTA pembelian menuju:
-  https://lynk.id/rebahan_tetapcuan
+  http://lynk.id/rebahan_tetapcuan/0x36qr7xp1xx/checkout
 - Video placeholder 16:9 yang mudah diganti
 - Slot bukti nyata/order pertama yang sengaja dibuat kosong
 

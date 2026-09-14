@@ -1,4 +1,4 @@
-const BUY_URL = "https://lynk.id/rebahan_tetapcuan";
+const BUY_URL = "http://lynk.id/rebahan_tetapcuan/0x36qr7xp1xx/checkout";
 
 const materials = [
   ["01","Produk Digital Gratis","Ada produk digital gratis yang bisa kamu gunakan sebagai langkah awal untuk mengenal dan mulai mempraktikkan sistem produk digital."],

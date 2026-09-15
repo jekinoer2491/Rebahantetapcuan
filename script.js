@@ -1,14 +1,12 @@
 const BUY_URL = "http://lynk.id/rebahan_tetapcuan/0x36qr7xp1xx/checkout";
 
 const materials = [
-  ["01","Produk Digital Gratis","Ada produk digital gratis yang bisa kamu gunakan sebagai langkah awal untuk mengenal dan mulai mempraktikkan sistem produk digital."],
-  ["02","750+ Produk Siap Jual Kembali","Berisi koleksi produk digital yang dapat digunakan sebagai bahan untuk mulai belajar dan berjualan kembali sesuai ketentuan reseller."],
-  ["03","Video Langkah-Langkah Ngonten Tanpa Tampil Muka, tapi Bisa Cepat Rame","Panduan membuat konten tanpa harus menampilkan wajah, mulai dari konsep sampai cara membuat konten yang lebih menarik."],
-  ["04","File PDF Ebook Cara Cepat Cuan Jutaan Perhari dari Produk Digital","Ebook yang membahas strategi dan langkah yang bisa dipelajari untuk memanfaatkan produk digital. Judul materi, bukan jaminan penghasilan."],
-  ["05","Video Langkah Demi Langkah Praktik untuk Mempelajari Produk Digital","Panduan praktik secara bertahap agar pemula tidak hanya membaca materi tetapi bisa langsung mencoba."],
-  ["06","Cara Membuat Akun Lynk.Id","Panduan membuat halaman Lynk.id sebagai tempat untuk menampilkan dan menjual produk digital."],
-  ["07","Cara Menambahkan Produk Digital ke Lynk.Id","Panduan memasukkan produk digital ke halaman Lynk.id agar siap ditawarkan kepada calon pembeli."],
-  ["08","Metode Boosting Konsumen — META ADS","Materi terakhir untuk belajar boosting setelah memahami produk, membuat konten, mempunyai halaman Lynk.id, dan memasukkan produk."]
+  ["01","Panduan Lengkap Cuan Jutaan dari Produk Digital","Rp 89.000","Panduan lengkap untuk memahami alur membangun cuan dari produk digital secara bertahap. Materi disusun sebagai panduan belajar, bukan jaminan penghasilan."],
+  ["02","750+ Produk Digital Siap Jual Kembali","Rp 99.000","Koleksi 750+ produk digital yang siap digunakan untuk belajar dan dijual kembali sesuai ketentuan reseller."],
+  ["03","Video Mentahan Siap Upload","Rp 49.000","Kumpulan video mentahan yang dapat membantu kamu membuat konten dan mulai upload dengan lebih praktis."],
+  ["04","Panduan Ngonten Tanpa Tampil Muka – Ebook + Video","Rp 59.000","Panduan ebook dan video untuk membuat konten tanpa harus tampil di depan kamera."],
+  ["05","Materi Lengkap Meta Ads + TikTok Ads","Rp 79.000","Materi untuk mempelajari dasar Meta Ads dan TikTok Ads setelah fondasi produk dan konten siap."],
+  ["06","Produk Digital Cuan dari Affiliate","Rp 44.000","Materi untuk mengenal peluang affiliate melalui produk digital dan memahami alur promosinya."]
 ];
 
 const list = document.querySelector("#materialList");
@@ -19,12 +17,12 @@ const modalIndex = document.querySelector("#modalIndex");
 const modalClose = document.querySelector("#modalClose");
 let lastFocused = null;
 
-materials.forEach(([num,title,text]) => {
+materials.forEach(([num,title,value,text]) => {
   const item = document.createElement("button");
   item.className = "material-item reveal";
   item.type = "button";
-  item.innerHTML = `<span class="num">${num}</span><strong>${title}</strong><span class="arrow">↗</span>`;
-  item.addEventListener("click", () => openModal(num,title,text));
+  item.innerHTML = `<span class="num">${num}</span><span class="material-main"><strong>${title}</strong><small>Senilai ${value}</small></span><span class="arrow">↗</span>`;
+  item.addEventListener("click", () => openModal(num,title,`${text}\n\nNilai materi: ${value}`));
   list.appendChild(item);
 });
 
@@ -81,50 +79,44 @@ const revealObserver = new IntersectionObserver(entries => {
 },{threshold:.12});
 document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
 
-const parallaxEls = document.querySelectorAll("[data-parallax]");
-let ticking = false;
 window.addEventListener("scroll", () => {
-  if(ticking) return;
-  ticking = true;
-  requestAnimationFrame(() => {
-    const y = window.scrollY;
-    document.querySelectorAll("[data-parallax]").forEach(el => {
-      const amount = parseFloat(el.dataset.parallax || 0);
-      const rect = el.getBoundingClientRect();
-      const shift = (rect.top - innerHeight/2) * amount;
-      el.style.transform = `translateY(${shift * -0.12}px)`;
-    });
-    document.querySelectorAll(".drag-deco,.hero-dot").forEach((el,i) => {
-      const base = (y * (i % 2 ? .012 : -.008));
-      el.style.marginTop = `${base}px`;
-    });
-    ticking = false;
+  document.querySelectorAll("[data-parallax]").forEach(el => {
+    const amount = parseFloat(el.dataset.parallax || 0);
+    const rect = el.getBoundingClientRect();
+    const shift = (rect.top - innerHeight/2) * amount;
+    el.style.transform = `translateY(${shift * -0.12}px)`;
+  });
+  document.querySelectorAll(".drag-deco,.hero-dot").forEach((el,i) => {
+    const base = (window.scrollY * (i % 2 ? .012 : -.008));
+    el.style.marginTop = `${base}px`;
   });
 },{passive:true});
 
 // Countdown: a self-contained 12-hour cycle, no backend required.
 const countdownEl = document.querySelector("#countdown");
-const CYCLE_MS = 12 * 60 * 60 * 1000;
-let cycleEnd = Number(localStorage.getItem("rtc-countdown-end"));
-if(!cycleEnd || cycleEnd <= Date.now()) {
-  cycleEnd = Date.now() + CYCLE_MS;
-  localStorage.setItem("rtc-countdown-end",String(cycleEnd));
-}
-function renderCountdown(){
-  let diff = cycleEnd - Date.now();
-  if(diff <= 0){
+if(countdownEl){
+  const CYCLE_MS = 12 * 60 * 60 * 1000;
+  let cycleEnd = Number(localStorage.getItem("rtc-countdown-end"));
+  if(!cycleEnd || cycleEnd <= Date.now()) {
     cycleEnd = Date.now() + CYCLE_MS;
     localStorage.setItem("rtc-countdown-end",String(cycleEnd));
-    diff = cycleEnd - Date.now();
   }
-  const total = Math.floor(diff/1000);
-  const h = String(Math.floor(total/3600)).padStart(2,"0");
-  const m = String(Math.floor((total%3600)/60)).padStart(2,"0");
-  const s = String(total%60).padStart(2,"0");
-  countdownEl.textContent = `${h} : ${m} : ${s}`;
+  function renderCountdown(){
+    let diff = cycleEnd - Date.now();
+    if(diff <= 0){
+      cycleEnd = Date.now() + CYCLE_MS;
+      localStorage.setItem("rtc-countdown-end",String(cycleEnd));
+      diff = cycleEnd - Date.now();
+    }
+    const total = Math.floor(diff/1000);
+    const h = String(Math.floor(total/3600)).padStart(2,"0");
+    const m = String(Math.floor((total%3600)/60)).padStart(2,"0");
+    const s = String(total%60).padStart(2,"0");
+    countdownEl.textContent = `${h} : ${m} : ${s}`;
+  }
+  renderCountdown();
+  setInterval(renderCountdown,1000);
 }
-renderCountdown();
-setInterval(renderCountdown,1000);
 
 // Lightweight drag/swipe with elastic return.
 const toast = document.querySelector("#toast");
@@ -142,7 +134,6 @@ document.querySelectorAll(".drag-deco,.hero-dot").forEach(el => {
     startX=e.clientX; startY=e.clientY;
     el.style.cursor="grabbing";
     el.style.transition="none";
-    showToast();
   };
   const move = e => {
     if(!active) return;
@@ -162,11 +153,6 @@ document.querySelectorAll(".drag-deco,.hero-dot").forEach(el => {
   el.addEventListener("pointermove",move);
   el.addEventListener("pointerup",up);
   el.addEventListener("pointercancel",up);
-});
-
-document.querySelector("#playPlaceholder").addEventListener("click",() => {
-  const frame = document.querySelector("#videoFrame");
-  frame.querySelector(".video-placeholder").innerHTML = `<div style="text-align:center;padding:20px"><div style="font-family:'Plus Jakarta Sans';font-size:24px;font-weight:800">Video siap diganti</div><p style="opacity:.65;margin:8px 0 0">Ganti isi .video-frame dengan iframe YouTube, video Drive, atau &lt;video&gt; milikmu.</p></div>`;
 });
 
 // Keep keyboard focus usable inside modal.

@@ -1,59 +1,13 @@
-REBahan TETAP CUAN — REDESIGN UI/UX PRO MAX
-===============================================
+REBAHAN TETAP CUAN — UPDATED LANDING PAGE
 
-STRUKTUR
---------
-rebahan-tetap-cuan-redesign/
-├── index.html
-├── style.css
-├── script.js
-├── hero.png
-├── jeki.png
-└── README.txt
+Perbaikan:
+- Harga spesial Rp 69.900 dengan total nilai Rp 419.000.
+- Section "Yang Akan Kamu Dapatkan" diperbarui menjadi 6 materi sesuai brief.
+- Video utama menggunakan 1000077810.mp4.
+- Section "Bukti Nyata" ditambahkan dengan 2 screenshot dan video pendukung.
+- Perkenalan Jeki diganti sesuai naskah terbaru.
+- CTA diperkuat menjadi "Ambil Paket Sekarang – Rp 69.900" dan "Dapatkan Akses Sekarang – Rp 69.900".
+- Desain, warna, struktur utama, interaksi modal, tema, dan alur pemula tetap dipertahankan.
 
-CARA MENJALANKAN
-----------------
-1. Extract ZIP.
-2. Buka index.html di browser.
-3. Untuk preview lokal yang lebih ideal, gunakan Live Server/localhost.
-   Tidak ada backend yang diperlukan.
-
-FITUR
------
-- Mobile-first responsive layout
-- Storytelling flow: story → problem → experience → materials → practice flow → offer → CTA
-- Brand palette: #F0997B, #FAECE7, #4A1B0C, #993C1D
-- Dark mode + localStorage
-- Modal materi interaktif
-- Modal Ketentuan Reseller
-- Countdown realtime 12 jam yang reset otomatis dan selalu terlihat di section promo
-- Dekorasi drag/swipe dengan elastic return
-- Scroll reveal
-- Gentle hero floating + lightweight parallax
-- Keyboard accessible modal (ESC, click outside, focus handling)
-- CTA pembelian menuju:
-  http://lynk.id/rebahan_tetapcuan/0x36qr7xp1xx/checkout
-- Video placeholder 16:9 yang mudah diganti
-- Slot bukti nyata/order pertama yang sengaja dibuat kosong
-
-MENGGANTI GAMBAR
-----------------
-Ganti:
-hero.png  → ilustrasi/logo hero
-jeki.png   → foto Jeki
-
-MENGGANTI VIDEO
----------------
-Di index.html cari .video-frame. Ganti isi .video-placeholder dengan
-iframe YouTube, embed Drive, atau elemen <video> milik sendiri.
-
-CATATAN COUNTDOWN
------------------
-Countdown menggunakan localStorage agar siklus 12 jam tersimpan pada browser.
-Tidak membutuhkan backend. Jika storage browser dihapus, siklus akan mulai
-lagi dari 12 jam.
-
-CATATAN KONTEN
---------------
-Tidak ada klaim pendapatan, testimonial palsu, angka penjualan palsu,
-atau jaminan hasil yang ditambahkan.
+Cara pakai:
+Buka index.html pada browser atau deploy folder ini ke Netlify.

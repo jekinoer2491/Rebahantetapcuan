@@ -2,7 +2,7 @@ const BUY_URL = "http://lynk.id/rebahan_tetapcuan/0x36qr7xp1xx/checkout";
 
 const materials = [
   ["01","Panduan Lengkap Cuan Jutaan dari Produk Digital","Rp 89.000","Panduan lengkap untuk memahami alur membangun cuan dari produk digital secara bertahap. Materi disusun sebagai panduan belajar, bukan jaminan penghasilan."],
-  ["02","750+ Produk Digital Siap Jual Kembali","Rp 99.000","Koleksi 750+ produk digital yang siap digunakan untuk belajar dan dijual kembali sesuai ketentuan reseller."],
+  ["02","102+ Produk Digital Siap Dijual","Rp 99.000","Koleksi 102+ produk digital yang siap digunakan untuk belajar dan dijual kembali sesuai ketentuan reseller."],
   ["03","Video Mentahan Siap Upload","Rp 49.000","Kumpulan video mentahan yang dapat membantu kamu membuat konten dan mulai upload dengan lebih praktis."],
   ["04","Panduan Ngonten Tanpa Tampil Muka – Ebook + Video","Rp 59.000","Panduan ebook dan video untuk membuat konten tanpa harus tampil di depan kamera."],
   ["05","Materi Lengkap Meta Ads + TikTok Ads","Rp 79.000","Materi untuk mempelajari dasar Meta Ads dan TikTok Ads setelah fondasi produk dan konten siap."],

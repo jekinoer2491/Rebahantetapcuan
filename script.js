@@ -164,3 +164,12 @@ document.addEventListener("keydown", e => {
   if(e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
   else if(!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
 });
+
+// Meta Pixel: catat setiap klik tombol menuju checkout Lynk.id.
+document.querySelectorAll(".pixel-cta").forEach(btn => {
+  btn.addEventListener("click", () => {
+    if (typeof fbq === "function") {
+      fbq("track", "InitiateCheckout");
+    }
+  });
+});
